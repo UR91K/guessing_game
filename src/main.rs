@@ -9,11 +9,11 @@ fn main() {
         let mut correct_guesses: [bool; 3];
         let mut attempts_remaining: i32 = 3;
 
-        println!("Welcome to the guessing game. You must guess three numbers.");
+        println!("Welcome to the guessing game. You must guess three numbers between 1 and 5.");
 
         while attempts_remaining > 0 {
             println!("You have {} attempt(s) remaining.", attempts_remaining);
-            let users_guesses = get_user_input();
+            let users_guesses: [i32; 3] = get_user_input();
             correct_guesses = compare_guesses(random_numbers, users_guesses);
             attempts_remaining -= 1;
 
@@ -70,7 +70,7 @@ fn compare_guesses(random_numbers: [i32; 3], guessed_numbers: [i32; 3]) -> [bool
 
     for i in 0..3 {
         if random_numbers[i] == guessed_numbers[i] {
-            println!("{} is correct", guessed_numbers[i]);
+            println!("{} is correct!", guessed_numbers[i]);
             correct_guesses[i] = true;
         } else {
             let mut is_duplicate : bool = false;
